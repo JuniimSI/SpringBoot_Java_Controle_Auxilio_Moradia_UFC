@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="base/base"
+	th:with="currentPage='selecao'">
+
+<head>
+	<title>Auxílio - Detalhes da Seleção</title>
+</head>
+
+<section layout:fragment="conteudo">
+	<!-- Informações da seleção -->
+	<div class="row">
+		<div class="col s12">
+			<div th:replace="selecao/detalhes/selecao :: selecao" ></div>
+		</div>
+	</div>
+
+	<!-- Comissão -->
+	<div class="row" sec:authorize="hasAuthority('SERVIDOR')">
+		<div class="col s12">
+			<div th:replace="selecao/detalhes/comissao :: comissao"></div>
+		</div>
+	</div>
+
+	<!-- Documentação -->
+	<div class="row">
+		<div class="col s8">
+			<div th:replace="selecao/detalhes/documentacao :: documentacao"></div>
+		</div>
+		<div class="col s4">
+			<div th:replace="selecao/detalhes/arquivos :: arquivos"></div>
+		</div>
+	</div>
+
+	<!-- Arquivos -->
+	<div class="row">
+
+	</div>
+
+
+</section>
+
+<section layout:fragment="js">
+	
+</section>
+
+</html>
